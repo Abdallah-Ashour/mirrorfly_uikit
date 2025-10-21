@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mirrorfly_uikit/loginScreen%20.dart';
+import 'package:mirrorfly_uikit_plugin/app/routes/mirrorfly_navigation_observer.dart';
+import 'package:mirrorfly_uikit_plugin/app/routes/route_settings.dart';
 // import 'package:mirrorfly_uikit_plugin/mirrorfly_uikit.dart';
 import 'package:mirrorfly_uikit_plugin/mirrorfly_uikit.dart';
 
@@ -11,6 +14,8 @@ void main() {
     iOSContainerID: "com.example.mirrorfly_uikit",
     chatHistoryEnable: true,
   );
+
+  // MirrorflyUikit.instance.logoutFromUIKIT();
   runApp(const MyApp());
 }
 
@@ -22,6 +27,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      navigatorKey: navigatorKey,
+      navigatorObservers: [MirrorFlyNavigationObserver()],
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          default:
+            return mirrorFlyRoute(settings);
+        }
+      },
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -40,7 +53,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginScreen(),
     );
   }
 }

@@ -992,10 +992,11 @@ packages:
   mirrorfly_uikit_plugin:
     dependency: "direct main"
     description:
-      name: mirrorfly_uikit_plugin
-      sha256: ac7d2c8b21839daf75ea00d4e3278c83d8dbf3acaf2e1293a16a8cb15967c4df
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: "feature/flutter_latest_migration"
+      resolved-ref: "15a10da42d21960cbeabf32907a18ad8e4642284"
+      url: "https://github.com/MirrorFly/MirrorFly-Flutter-UIKIT.git"
+    source: git
     version: "3.0.0+1"
   nested:
     dependency: transitive
